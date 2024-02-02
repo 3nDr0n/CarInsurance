@@ -60,7 +60,6 @@ namespace CarInsurance.Controllers
             {
                 double baseQuote = 50;
                 double totalQuote = baseQuote;
-                var birthday = insuree.DateOfBirth;
                 var Age = DateTime.Now.Year - insuree.DateOfBirth.Year;
 
                 if (Age <= 18)
@@ -97,16 +96,16 @@ namespace CarInsurance.Controllers
 
                 totalQuote += insuree.SpeedingTickets * 10;
 
-                // DUI logic
+                
                 if (insuree.DUI == true)
                 {
-                    totalQuote *= 1.25; // Increase total by 25%
+                    totalQuote *= 1.25;
                 }
 
-                // Full coverage logic
+                
                 if (insuree.CoverageType == true)
                 {
-                    totalQuote *= 1.5; // Increase total by 50%
+                    totalQuote *= 1.5; 
                 }
 
                 insuree.Quote = Convert.ToDecimal(totalQuote);
